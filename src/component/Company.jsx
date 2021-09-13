@@ -1,18 +1,33 @@
 import { Component } from "react";
-import { Card, Button } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
 class Company extends Component {
   state = {};
 
+  //   componentDidMount = async () => {
+  //     try {
+  //       //   const response = await fetch("https://remotive.io/api/remote-jobs");
+  //       if (response.ok) {
+  //         const res = await response.json();
+  //         console.log(res.jobs);
+  //         this.setState({
+  //           jobs: res.jobs,
+  //         });
+  //       } else {
+  //         console.log(`Errorrrrr`);
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+
   render() {
     return (
-      <Card className="mt-3">
-        <Card.Body>
-          <Card.Title>job.title</Card.Title>
-          <Card.Text>job.company_name</Card.Text>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-      </Card>
+      <Container>
+        <Row>
+          <Col>Hello</Col>
+        </Row>
+      </Container>
     );
   }
 }

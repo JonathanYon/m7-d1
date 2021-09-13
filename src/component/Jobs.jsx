@@ -1,16 +1,19 @@
 import { Component } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Company from "./Company";
+import Detail from "./Detail";
 import SingleJob from "./SingleJob";
 
 class Jobs extends Component {
   state = {
     jobs: [],
+    oneJob: null,
   };
 
   componentDidMount = async () => {
     try {
-      const response = await fetch("https://remotive.io/api/remote-jobs");
+      const response = await fetch(
+        "https://remotive.io/api/remote-jobs?limit=10"
+      );
       if (response.ok) {
         const res = await response.json();
         console.log(res.jobs);
@@ -25,17 +28,34 @@ class Jobs extends Component {
     }
   };
 
+  //   company = (name) => {
+  //     this.setState({
+  //       oneJob: name,
+  //     });
+  //   };
+
   render() {
     return (
       <Container>
         <Row>
           <Col sm={5}>
             {this.state.jobs
-              .map((job) => <SingleJob key={job.id} job={job} />)
+              .map((job) => (
+                <SingleJob
+                  key={job.id}
+                  job={job}
+                  setCompany={this.props.setCompany}
+                  company={(name) => this.setState({ oneJob: name })}
+                />
+              ))
               .slice(0, 10)}
           </Col>
           <Col sm={7}>
-            <Company />
+            {this.state.oneJob ? (
+              <Detail job={this.state.oneJob} />
+            ) : (
+              <h3>Select the Job you like from the left📜</h3>
+            )}
           </Col>
         </Row>
       </Container>
