@@ -1,6 +1,7 @@
 import { Component } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router";
+import OneJobCompany from "./OneJobCompany";
 
 class Company extends Component {
   // const Company = () => {
@@ -12,13 +13,13 @@ class Company extends Component {
     try {
       console.log("params ==>", this.props.match.params.name);
       const response = await fetch(
-        `https://remotive.io/api/remote-jobs?company_name=${this.props.match.params.name}`
+        `https://strive-jobs-api.herokuapp.com/jobs?company=${this.props.match.params.name}`
       );
       if (response.ok) {
         const res = await response.json();
-        console.log("company ==>", res.jobs);
+        console.log("company ==>", res.data);
         this.setState({
-          jobs: res.jobs,
+          jobs: res.data,
         });
       } else {
         console.log(`Errorrrrr`);
@@ -32,9 +33,10 @@ class Company extends Component {
     return (
       <Container>
         <h4>Company name: {this.props.match.params.name}</h4>
+        <Button onClick={() => this.props.history.push("/")}>Back</Button>
         <Row>
           {this.state.jobs.map((job, i) => (
-            <Col key={i}>{job.title}</Col>
+            <OneJobCompany key={job._id} job={job} />
           ))}
         </Row>
       </Container>

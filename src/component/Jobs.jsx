@@ -12,13 +12,13 @@ class Jobs extends Component {
   componentDidMount = async () => {
     try {
       const response = await fetch(
-        "https://remotive.io/api/remote-jobs?limit=10"
+        "https://strive-jobs-api.herokuapp.com/jobs?limit=10"
       );
       if (response.ok) {
         const res = await response.json();
-        console.log(res.jobs);
+        console.log(res.data);
         this.setState({
-          jobs: res.jobs,
+          jobs: res.data,
         });
       } else {
         console.log(`Errorrrrr`);
@@ -45,7 +45,7 @@ class Jobs extends Component {
               )
               .map((job) => (
                 <SingleJob
-                  key={job.id}
+                  key={job._id}
                   job={job}
                   setCompany={this.props.setCompany}
                   company={(name) => this.setState({ oneJob: name })}
