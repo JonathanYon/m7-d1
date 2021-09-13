@@ -28,7 +28,7 @@ function App() {
           )}
         />
         <Route
-          path="/company"
+          path="/company/:name"
           exact
           render={(routeProps) => <Company company={company} {...routeProps} />}
         />

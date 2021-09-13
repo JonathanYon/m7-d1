@@ -17,7 +17,9 @@ class Detail extends Component {
           <Card.Text>Job Type: {job.job_type}</Card.Text>
           <Button
             variant="primary"
-            onClick={() => this.props.history.push("/company")}
+            onClick={() =>
+              this.props.history.push(`/company/${job.company_name}`)
+            }
           >
             {job.company_name} jobs
           </Button>
