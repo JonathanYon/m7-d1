@@ -16,3 +16,4 @@ class SingleJob extends Component {
     );
   }
 }
+export default SingleJob;

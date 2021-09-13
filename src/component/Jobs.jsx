@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import SingleJob from "./SingleJob";
 
 class Jobs extends Component {
   state = {
@@ -8,7 +9,7 @@ class Jobs extends Component {
 
   componentDidMount = async () => {
     try {
-      // const response = await fetch("https://remotive.io/api/remote-jobs")
+      const response = await fetch("https://remotive.io/api/remote-jobs");
       if (response.ok) {
         const res = await response.json();
         this.setState({
@@ -26,10 +27,15 @@ class Jobs extends Component {
     return (
       <Container>
         <Row>
-          <Col sm={5}>Hello</Col>
+          <Col sm={5}>
+            {this.state.jobs
+              .map((job) => <SingleJob key={job.id} job={job} />)
+              .slice(0, 10)}
+          </Col>
           <Col sm={7}>Supp</Col>
         </Row>
       </Container>
     );
   }
 }
+export default Jobs;
