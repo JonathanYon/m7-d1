@@ -11,8 +11,10 @@ class Jobs extends Component {
 
   componentDidMount = async () => {
     try {
+      console.log("search prop:", this.props.search);
       const response = await fetch(
-        "https://strive-jobs-api.herokuapp.com/jobs?limit=10"
+        // "https://strive-jobs-api.herokuapp.com/jobs?limit=10"
+        `https://strive-jobs-api.herokuapp.com/jobs?title=${this.props.search}`
       );
       if (response.ok) {
         const res = await response.json();
@@ -35,6 +37,7 @@ class Jobs extends Component {
   //   };
 
   render() {
+    console.log("search prop:", this.props.search);
     return (
       <Container>
         <Row>

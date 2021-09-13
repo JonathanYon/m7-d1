@@ -32,8 +32,8 @@ class Company extends Component {
   render() {
     return (
       <Container>
-        <h4>Company name: {this.props.match.params.name}</h4>
         <Button onClick={() => this.props.history.push("/")}>Back</Button>
+        <h4>Company name: {this.props.match.params.name}</h4>
         <Row>
           {this.state.jobs.map((job, i) => (
             <OneJobCompany key={job._id} job={job} />

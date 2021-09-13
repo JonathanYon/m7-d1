@@ -16,14 +16,9 @@ class OneJobCompany extends Component {
             Salary Range: {job.salary ? job.salary : "As company salary policy"}
           </Card.Text>
           <Card.Text>Job Type: {job.job_type}</Card.Text>
-          {/* <Button
-            variant="primary"
-            onClick={() =>
-              this.props.history.push(`/company/${job.company_name}`)
-            }
-          >
-            {job.url} Apply Here
-          </Button> */}
+          <Button variant="primary" onClick={() => job.url}>
+            Apply Here
+          </Button>
         </Card.Body>
       </Card>
     );
