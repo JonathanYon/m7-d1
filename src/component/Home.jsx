@@ -12,9 +12,13 @@ class Home extends Component {
               placeholder="Username"
               aria-label="Username"
               aria-describedby="basic-addon1"
+              value={this.props.search}
+              onChange={(e) =>
+                this.props.setSearch(e.target.value.toLowerCase())
+              }
             />
           </InputGroup>
-          <Button>Search</Button>
+          {/* <Button>Search</Button> */}
         </div>
       </>
     );

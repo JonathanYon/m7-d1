@@ -8,7 +8,7 @@ import { useState } from "react";
 
 function App() {
   const [company, setCompany] = useState(null);
-  const [search, setSerch] = "";
+  const [search, setSearch] = useState("");
   return (
     <div className="App">
       <Router>
@@ -16,7 +16,7 @@ function App() {
           path="/"
           exact
           render={(routeProps) => (
-            <Home search={search} setSerch={setSerch} {...routeProps} />
+            <Home search={search} setSearch={setSearch} {...routeProps} />
           )}
         />
         {/* <Route component={Jobs} path="/" exact /> */}

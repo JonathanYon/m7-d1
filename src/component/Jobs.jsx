@@ -40,6 +40,9 @@ class Jobs extends Component {
         <Row>
           <Col sm={5}>
             {this.state.jobs
+              .filter((job) =>
+                job.title.toLowerCase().includes(this.props.search)
+              )
               .map((job) => (
                 <SingleJob
                   key={job.id}
