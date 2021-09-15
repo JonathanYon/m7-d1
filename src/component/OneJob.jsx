@@ -1,9 +1,7 @@
 import { Component } from "react";
 import { Card, Button } from "react-bootstrap";
 
-class OneJobCompany extends Component {
-  state = {};
-
+class OneJob extends Component {
   render() {
     const { job } = this.props;
     return (
@@ -24,4 +22,4 @@ class OneJobCompany extends Component {
     );
   }
 }
-export default OneJobCompany;
+export default OneJob;

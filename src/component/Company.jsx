@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { useParams } from "react-router";
-import OneJobCompany from "./OneJobCompany";
+import OneJob from "./OneJob";
 
 class Company extends Component {
   // const Company = () => {
@@ -36,7 +35,7 @@ class Company extends Component {
         <h4>Company name: {this.props.match.params.name}</h4>
         <Row>
           {this.state.jobs.map((job, i) => (
-            <OneJobCompany key={job._id} job={job} />
+            <OneJob key={job._id} job={job} />
           ))}
         </Row>
       </Container>
