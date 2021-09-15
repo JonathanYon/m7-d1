@@ -33,6 +33,7 @@ function App() {
           render={(routeProps) => <Company company={company} {...routeProps} />}
         /> */}
         <Route component={Company} path="/company/:name" exact />
+        {/* <Route component={Company} path="/company/:name" exact /> */}
       </Router>
     </div>
   );

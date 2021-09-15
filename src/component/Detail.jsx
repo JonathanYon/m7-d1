@@ -13,9 +13,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 class Detail extends Component {
-  state = {
-    selsectedFavComp: [],
-  };
   render() {
     const { job, theJob } = this.props;
     // console.log("jobtore==>", job.job.length);

@@ -18,7 +18,7 @@ class Home extends Component {
               }
             />
           </InputGroup>
-          {/* <Button>Search</Button> */}
+          <Button>Favourite</Button>
         </div>
       </>
     );
