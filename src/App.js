@@ -27,12 +27,12 @@ function App() {
             <Jobs setCompany={setCompany} {...routeProps} search={search} />
           )}
         />
-        <Route
+        {/* <Route
           path="/company/:name"
           exact
           render={(routeProps) => <Company company={company} {...routeProps} />}
-        />
-        {/* <Route component={Company} path="/company" exact  /> */}
+        /> */}
+        <Route component={Company} path="/company/:name" exact />
       </Router>
     </div>
   );
