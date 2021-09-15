@@ -7,9 +7,13 @@ const mapStateToProps = (state) => ({
   companies: state.favorite.companies,
 });
 
-// const mapDispatchToProps = dispatch => ({
-//     removeCompany:
-// })
+const mapDispatchToProps = (dispatch) => ({
+  removeCompany: (company) =>
+    dispatch({
+      type: "REMOVE_COMPANY",
+      payload: company,
+    }),
+});
 
 class Favorite extends Component {
   render() {
@@ -30,4 +34,4 @@ class Favorite extends Component {
     );
   }
 }
-export default connect(mapStateToProps)(Favorite);
+export default connect(mapStateToProps, mapDispatchToProps)(Favorite);
