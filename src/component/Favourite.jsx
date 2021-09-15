@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 class Favorite extends Component {
   render() {
-    const { companies } = this.props;
+    const { companies, removeCompany } = this.props;
 
     return (
       <>
@@ -26,7 +26,12 @@ class Favorite extends Component {
           <h4>My Favourite jobs</h4>
           <Row>
             {companies.map((company, i) => (
-              <OneJob job={company} key={i} />
+              <div className="d-flex flex-column">
+                <OneJob job={company} key={i} />
+                <Button className="w-25" onClick={() => removeCompany(company)}>
+                  Remove
+                </Button>
+              </div>
             ))}
           </Row>
         </Container>

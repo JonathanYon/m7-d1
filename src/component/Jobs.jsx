@@ -13,8 +13,8 @@ class Jobs extends Component {
     try {
       console.log("search prop:", this.props.search);
       const response = await fetch(
-        // "https://strive-jobs-api.herokuapp.com/jobs?limit=10"
-        `https://strive-jobs-api.herokuapp.com/jobs?title=${this.props.search}`
+        "https://strive-jobs-api.herokuapp.com/jobs?limit=10"
+        // `https://strive-jobs-api.herokuapp.com/jobs?title=${this.props.search}`
       );
       if (response.ok) {
         const res = await response.json();
