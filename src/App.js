@@ -5,6 +5,7 @@ import Jobs from "./component/Jobs";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Company from "./component/Company";
 import { useState } from "react";
+import Favourite from "./component/Favourite";
 
 function App() {
   const [company, setCompany] = useState(null);
@@ -33,7 +34,7 @@ function App() {
           render={(routeProps) => <Company company={company} {...routeProps} />}
         /> */}
         <Route component={Company} path="/company/:name" exact />
-        {/* <Route component={Company} path="/company/:name" exact /> */}
+        <Route component={Favourite} path="/favourite" exact />
       </Router>
     </div>
   );

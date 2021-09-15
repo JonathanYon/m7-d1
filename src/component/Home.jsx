@@ -18,7 +18,9 @@ class Home extends Component {
               }
             />
           </InputGroup>
-          <Button>Favourite</Button>
+          <Button onClick={() => this.props.history.push("/favourite")}>
+            Favourite
+          </Button>
         </div>
       </>
     );
