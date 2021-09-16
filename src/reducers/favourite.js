@@ -1,6 +1,6 @@
 import { initialState } from "../store";
 
-const mainReducer = (state = initialState, action) => {
+const favReducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_COMPANY":
       return {
@@ -26,4 +26,4 @@ const mainReducer = (state = initialState, action) => {
   }
 };
 
-export default mainReducer;
+export default favReducer;
