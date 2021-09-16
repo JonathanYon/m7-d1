@@ -7,11 +7,24 @@ export const addJobsAction = () => {
       if (response.ok) {
         const res = await response.json();
         dispatch({
+          type: "SET_LOADING",
+          payload: false,
+        });
+        dispatch({
           type: "ADD_JOBS",
           payload: res,
         });
+      } else {
+        dispatch({
+          type: "SET_ERROR",
+          payload: true,
+        });
       }
     } catch (error) {
+      dispatch({
+        type: "SET_ERROR",
+        payload: true,
+      });
       console.log(error);
     }
   };

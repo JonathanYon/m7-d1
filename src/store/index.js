@@ -12,6 +12,8 @@ export const initialState = {
   },
   vacancies: {
     jobs: [],
+    error: false,
+    loading: true,
   },
 };
 
