@@ -2,47 +2,51 @@ import { Component } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Detail from "./Detail";
 import SingleJob from "./SingleJob";
+import { connect } from "react-redux";
+import { addJobsAction } from "../action";
+
+const mapStateToProps = (state) => state;
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchJobs: () => dispatch(addJobsAction()),
+});
 
 class Jobs extends Component {
   state = {
-    jobs: [],
+    // jobs: [],
     oneJob: null,
   };
 
   componentDidMount = async () => {
-    try {
-      console.log("search prop:", this.props.search);
-      const response = await fetch(
-        "https://strive-jobs-api.herokuapp.com/jobs?limit=10"
-        // `https://strive-jobs-api.herokuapp.com/jobs?title=${this.props.search}`
-      );
-      if (response.ok) {
-        const res = await response.json();
-        console.log(res.data);
-        this.setState({
-          jobs: res.data,
-        });
-      } else {
-        console.log(`Errorrrrr`);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    this.props.fetchJobs();
+    // try { // this is commented out because am fatching muy jobs in my redx(action)
+    //   console.log("search prop:", this.props.search);
+    //   const response = await fetch(
+    //     "https://strive-jobs-api.herokuapp.com/jobs?limit=10"
+    //     // `https://strive-jobs-api.herokuapp.com/jobs?title=${this.props.search}`
+    //   );
+    //   if (response.ok) {
+    //     const res = await response.json();
+    //     console.log(res.data);
+    //     this.setState({
+    //       jobs: res.data,
+    //     });
+    //   } else {
+    //     console.log(`Errorrrrr`);
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
-  //   company = (name) => {
-  //     this.setState({
-  //       oneJob: name,
-  //     });
-  //   };
-
   render() {
-    console.log("search prop:", this.props.search);
+    // const { jobs } = this.props;
+    console.log("redux prop :", this.props.vacancies.jobs);
     return (
       <Container>
         <Row>
           <Col sm={5}>
-            {this.state.jobs
+            {this.props.vacancies.jobs
               .filter((job) =>
                 job.title.toLowerCase().includes(this.props.search)
               )
@@ -68,4 +72,4 @@ class Jobs extends Component {
     );
   }
 }
-export default Jobs;
+export default connect(mapStateToProps, mapDispatchToProps)(Jobs);

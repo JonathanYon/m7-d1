@@ -12,7 +12,7 @@ export const addJobsAction = () => {
         });
         dispatch({
           type: "ADD_JOBS",
-          payload: res,
+          payload: res.data,
         });
       } else {
         dispatch({
