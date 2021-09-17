@@ -26,8 +26,8 @@ class Favorite extends Component {
           <h4>My Favourite jobs</h4>
           <Row>
             {companies.map((company, i) => (
-              <div className="d-flex flex-column">
-                <OneJob job={company} key={i} />
+              <div className="d-flex flex-column" key={`key ${i}`}>
+                <OneJob job={company} />
                 <Button
                   className="w-25"
                   onClick={() => removeCompany(i)}
