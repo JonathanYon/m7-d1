@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
 // import { connect } from "react-redux";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 // const mapStateToProps = (state) => state;
