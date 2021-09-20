@@ -27,14 +27,14 @@ class Favorite extends Component {
           <Row>
             {companies.map((company, i) => (
               <div className="d-flex flex-column" key={`key ${i}`}>
-                <OneJob job={company} />
-                <Button
+                <OneJob job={company} index={i} remove={removeCompany} />
+                {/* <Button
                   className="w-25"
                   onClick={() => removeCompany(i)}
                   //   onClick={() => removeCompany(company.title)} //removing based on the name of the job but its not efficient
                 >
                   Remove
-                </Button>
+                </Button> */}
               </div>
             ))}
           </Row>
