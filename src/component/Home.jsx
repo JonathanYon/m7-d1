@@ -1,5 +1,9 @@
 import { Component } from "react";
 import { Button, FormControl, InputGroup } from "react-bootstrap";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
+const mapStateToProps = (state) => state;
 
 class Home extends Component {
   render() {
@@ -18,12 +22,12 @@ class Home extends Component {
               }
             />
           </InputGroup>
-          <Button onClick={() => this.props.history.push("/favourite")}>
-            Favourite
-          </Button>
+          <Link to="/favourite">
+            <Button>{this.props.favorite.companies.length}</Button>
+          </Link>
         </div>
       </>
     );
   }
 }
-export default Home;
+export default connect(mapStateToProps)(Home);
