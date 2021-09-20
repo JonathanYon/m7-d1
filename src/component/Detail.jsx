@@ -36,14 +36,9 @@ class Detail extends Component {
           <Button
             variant="primary"
             className="ml-2"
-            onClick={() =>
-              // this.setState({
-              //   selsectedFavComp: job,
-              // })
-              theJob(job)
-            }
+            onClick={() => theJob(job)}
           >
-            add to faborite
+            add to favorite
           </Button>
         </Card.Body>
       </Card>
