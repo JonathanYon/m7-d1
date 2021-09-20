@@ -3,14 +3,19 @@ import mainReducer from "../reducers/favourite";
 import thunk from "redux-thunk";
 import favReducer from "../reducers/favourite";
 import jobReducer from "../reducers/jobs";
-import { persistStore } from "redux-persist";
-import { persistReducer } from "redux-persist";
+import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import { encryptTransform } from "redux-persist-transform-encrypt";
 
 const persistConfig = {
   key: "root",
   storage,
   whitelist: ["favorite"],
+  transforms: [
+    encryptTransform({
+      secretKey: "Yonani", //process.env.REACT_ENCRIPTION_KEY,
+    }),
+  ],
 };
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE || compose;
 
