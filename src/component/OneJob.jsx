@@ -3,7 +3,8 @@ import { Card, Button } from "react-bootstrap";
 
 class OneJob extends Component {
   render() {
-    const { job } = this.props;
+    const { job, index, remove } = this.props;
+    console.log("props", this.props);
     return (
       <Card className=" mr-3 my-3">
         <Card.Body>
@@ -16,6 +17,13 @@ class OneJob extends Component {
           <Card.Text>Job Type: {job.job_type}</Card.Text>
           <Button variant="primary" onClick={() => job.url}>
             Apply Here
+          </Button>
+          <Button
+            className="w-25"
+            onClick={() => remove(index)}
+            //   onClick={() => removeCompany(company.title)} //removing based on the name of the job but its not efficient
+          >
+            Remove
           </Button>
         </Card.Body>
       </Card>
